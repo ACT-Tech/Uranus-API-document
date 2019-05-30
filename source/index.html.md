@@ -2,10 +2,8 @@
 title: API Reference
 
 language_tabs: # must be one of https://git.io/vQNgJ
-  - shell
-  - ruby
-  - python
-  - javascript
+  - Json
+
 
 toc_footers:
   - <a href='#'>Sign Up for a Developer Key</a>
@@ -101,7 +99,30 @@ pay_currency | string | Cryptocurrency code which will be paid. Eg, BTC, ADA. If
 
 <b>Response</b> <br>
 If successful, this method returns a response body with the following structure <br>
-<aside class="padding-code" style='background-color: #E5E9EB'>
+
+```shell
+{
+    "id": 53,
+    "status": "unconfirmed",
+    "invoice_price_currency": "USD",
+    "invoice_price_amount": 0.5,
+    "wallet_address": "367f4YWz1VCFaqBqwbTrzwi2b1h2U3w1AF",
+    "invoice_created_at": "2018-11-15T05:49:36.553+07:00",
+    "order_id": "ORDER-1539318129916178-4",
+    "token": "DkNB5m5a7VZySCWr2jZfEw",
+    "payment_url": "https://.../invoices/f7eb404c-...-be1fd9bbc464",
+    "title": "Order 4",
+    "description": "1 × Espresso Con Panna",
+    "pay_amount": 16.26,
+    "pay_currency": "ADA",
+    "wallet_address": "Ae2tdPwUPEZ9Z3...UHZdqHMXUvHMp5i5SE5D2YxkB",
+    "qr_code_url": "https://paym...ices/qr_code/Ae5D2xkB",
+    "invoice_confirmed_at": null,
+    "invoice_received_amount": 0,
+  }
+```
+
+<!-- <aside class="padding-code" style='background-color: #E5E9EB'>
 { <br>
     <span class='greenText'>"id":</span><span class="pinkText">53,</span> <br>
     <span class='greenText'>"status":</span><span class="pinkText">"unconfirmed",</span>  <br>
@@ -121,7 +142,7 @@ If successful, this method returns a response body with the following structure 
     <span class='greenText'>"invoice_confirmed_at":</span><span class="pinkText">null,</span> <br>
     <span class='greenText'>"invoice_received_amount":</span><span class="pinkText">0,</span> <br>
   }
-</aside>
+</aside> -->
 
 <b>Response data</b> | <b>Value</b> | <b>Description</b>
 ---------- | ---------- | ----------
@@ -134,6 +155,28 @@ invoice_created_at | DateTime | The time when the order (invoice) was created
 token | string | The token is used when need to verify the payment again. Maybe the merchants’ systems don’t need to store it.
 
 ### <span style="color:#e01b84">Create Order Status<span>
+
+```shell
+{ 
+"id":53, 
+"status":"paid", 
+"invoice_price_currency":"USD", 
+"invoice_price_amount":0.5, 
+"created_at":"2018-11-15T05:49:36.553+07:00", 
+"order_id":"ORDER-1539318129916178-4", 
+"token":"DkNB5m5a7VZySCWr2jZfEw", 
+"payment_url":"https://.../invoices/f7eb404c-...-be1fd9bbc464", 
+"title":"Order 4", 
+"description":"1 × Espresso Con Panna", 
+"pay_amount":16.26, 
+"pay_currency":"ADA", 
+"wallet_address":"Ae2tdPwUPEZ9Z3...UHZdqHMXUvHMp5i5SE5D2YxkB", 
+"qr_code_url":"https://paym...ices/qr_code/Ae5D2xkB", 
+"invoice_confirmed_at": "2018-11-15T05:55:36.553+07:00", 
+"invoice_received_amount":16.3 
+}
+```
+
 <b>Method</b> | <b>HTTP Request</b> | <b>Description</b>
 --------- | --------- | ----------
 URIs relative to `https://<Server URL>/api/v1/`, unless otherwise noted | |
@@ -147,7 +190,9 @@ id | integer | Order ID
 
 <b>Reponsise</b> <br>
 If successful, this method returns a response body with the following structure <br>
-<aside class="padding-code" style='background-color: #E5E9EB'>
+
+
+<!-- <aside class="padding-code" style='background-color: #E5E9EB'>
 { <br>
     <span class='greenText'>"id":</span><span class="pinkText">53,</span> <br>
     <span class='greenText'>"status":</span><span class="pinkText">"paid",</span>  <br>
@@ -166,7 +211,7 @@ If successful, this method returns a response body with the following structure 
     <span class='greenText'>"invoice_confirmed_at":</span><span class="pinkText">2018-11-15T05:55:36.553+07:00",</span> <br>
     <span class='greenText'>"invoice_received_amount":</span><span class="pinkText">16.3</span> <br>
   }
-</aside> <br>
+</aside> <br> -->
 
 <b>Response data</b> | <b>Value</b> | <b>Description</b>
 --------- | ---------- | ----------
@@ -177,6 +222,46 @@ invoice_received_amount | Double | The real amount which the system
 ## <span style="color:#e01b84">Reporting API<span>
 
 ### <span style="color:#e01b84">List the orders<span>
+
+```shell
+{ 
+"message":"Success", 
+"data": [, 
+{ 
+"id":6, 
+"status":"paid", 
+"invoice_price_currency":"USD", 
+"invoice_price_amount":1.0, 
+"created_at":"2018-10-23T16:33:24.485+09:00", 
+"order_id":"ORDER-1540280002934932-6", 
+"token":"uwxHYa4Q4Kg-UR-0UCHZ3w", 
+"payment_url":"https://payment.act-te...8b3-8655-69ee5542fc1a", 
+"title":"Order #6", 
+"description":"1 × 1 × Brewed Coffee", 
+"pay_amount":0.0001544, 
+"pay_currency":"BTC", 
+"wallet_address":"2MvvXu8JdcZdo9pAkw2fMvAZxrmTbhrviap", 
+"wallet_url":"https://payment.act-t...cZdo9pAkw2fMvAZxrmTbhrviap", 
+}, 
+{ "id":5, 
+"status":"expired", 
+"invoice_price_currency":"USD", 
+"invoice_price_amount":3.0, 
+"created_at":"2018-10-23T16:17:59.203+09:00", 
+"order_id":"ORDER-1540279075370022-5", 
+"token":"B5CO-64aXVk_vb-Op3QK5w", 
+"payment_url":"https://payment.act-tech...0b-45d1-b919-3f9110032efd", 
+"title":"Order #5", 
+"description":"1 × Caramel Macchiato", 
+"pay_amount":0.0004635, 
+"pay_currency":"BTC", 
+"wallet_address":"2N47sHtU9wewejLGh3Hv8H89gNX53xNa4PH", 
+"wallet_url":"https://payment.act-tech...9wewejLGh3Hv8H89gNX53xNa4PH", 
+} 
+] 
+}
+```
+
 <b>Method</b> | <b>HTTP request</b> | <b>Description</b>
 --------- | ---------- | ----------
 URIs relative to `https://<Server URL>/api/v1/`, unless otherwise noted | |
@@ -222,7 +307,7 @@ LAST_30_DAYS | The last 30 days not including today.
 
 If successful, this method returns a response body with the result
 
-<aside class="padding-code" style='background-color: #E5E9EB'>
+<!-- <aside class="padding-code" style='background-color: #E5E9EB'>
 { <br>
     <span class='greenText'>"message":</span><span class="pinkText">"Success",</span> <br>
     <span class='greenText'>"data":</span><span class="pinkText"> [,</span>  <br>
@@ -260,7 +345,7 @@ If successful, this method returns a response body with the result
    } <br>
   ] <br>
    }
-</aside>
+</aside> -->
 
 ## <span style="color:#e01b84">Public API<span>
 
@@ -297,6 +382,17 @@ If successful, this method returns a response body with the result
 URIs relative to https://<Server URL>/api/v1/, unless otherwise noted | | 
 get | GET  `/rates/:from/:to` | Get an exchange rate
 
+```shell
+{ 
+"from":String, 
+"to":String, 
+"rate":double, 
+"time":DateTime, 
+}
+
+```
+
+
 
 <b>Prameters</b>
 
@@ -312,14 +408,14 @@ source | string | The source to get the exchange rate data. Default: Cryptocompa
 
 If successful, this method returns a response body with the result
 
-<aside class="padding-code" style='background-color: #E5E9EB'>
+<!-- <aside class="padding-code" style='background-color: #E5E9EB'>
 { <br>
     <span class='greenText'>"from":</span><span class="pinkText">String,</span> <br>
     <span class='greenText'>"to":</span><span class="pinkText">String,</span> <br>
     <span class='greenText'>"rate":</span><span class="pinkText">double,</span> <br>
     <span class='greenText'>"time":</span><span class="pinkText">DateTime,</span> <br>
   }
-</aside> <br>
+</aside> <br> -->
 
 <b>Example</b> <br>
 
@@ -331,11 +427,21 @@ If successful, this method returns a response body with the result
 
 # <span style="color:#e01b84">Real-Time Notifications<span>
 
+```shell
+{ 
+"id":12, 
+"order_id":"ORDER-1545492017181432-35", 
+"token":"kmeJKu7LHOkH82XDEFW89Q", 
+"status":"paid", 
+"invoice_received_amount":"0.0007723", 
+}
+```
+
 <b>Data post callback</b> <br>
 
 If successful, the system will post to callback URL with data
 
-<aside class="padding-code" style='background-color: #E5E9EB'>
+<!-- <aside class="padding-code" style='background-color: #E5E9EB'>
 { <br>
     <span class='greenText'>"id":</span><span class="pinkText">12,</span> <br>
     <span class='greenText'>"order_id":</span><span class="pinkText">"ORDER-1545492017181432-35",</span> <br>
@@ -343,7 +449,7 @@ If successful, the system will post to callback URL with data
     <span class='greenText'>"status":</span><span class="pinkText">"paid",</span> <br>
     <span class='greenText'>"invoice_received_amount":</span><span class="pinkText">"0.0007723",</span> <br>
   }
-</aside>
+</aside> -->
 
 <b>Name</b> | <b>Description</b>
 ---------- | ----------
@@ -356,238 +462,4 @@ invoice_received_amount | The received amount
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# Authentication
-
-
-
-
-
-
-
-
-# Authentication
-
-> To authorize, use this code:
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-```
-
-```shell
-# With shell, you can just pass the correct header with each request
-curl "api_endpoint_here"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-```
-
-> Make sure to replace `meowmeowmeow` with your API key.
-
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
-
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
-
-`Authorization: meowmeowmeow`
-
-<aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
-</aside>
-
-# Kittens
-
-## Get All Kittens
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
-```
-
-```shell
-curl "http://example.com/api/kittens"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let kittens = api.kittens.get();
-```
-
-> The above command returns JSON structured like this:
-
-```json
-[
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
-]
-```
-
-This endpoint retrieves all kittens.
-
-### HTTP Request
-
-`GET http://example.com/api/kittens`
-
-### Query Parameters
-
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
-
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
-
-## Get a Specific Kitten
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```shell
-curl "http://example.com/api/kittens/2"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.get(2);
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
-}
-```
-
-This endpoint retrieves a specific kitten.
-
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
-
-### HTTP Request
-
-`GET http://example.com/kittens/<ID>`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to retrieve
-
-## Delete a Specific Kitten
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.delete(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.delete(2)
-```
-
-```shell
-curl "http://example.com/api/kittens/2"
-  -X DELETE
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.delete(2);
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "id": 2,
-  "deleted" : ":("
-}
-```
-
-This endpoint deletes a specific kitten.
-
-### HTTP Request
-
-`DELETE http://example.com/kittens/<ID>`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to delete
 
