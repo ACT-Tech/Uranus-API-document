@@ -1,0 +1,1096 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>API Reference</title>
+
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .cd {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+    </style>
+    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all.js"></script>
+  </head>
+
+  <body class="index" data-languages="[&quot;Json&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar.png" alt="Navbar" />
+      </span>
+    </a>
+    <div class="toc-wrapper">
+      <img src="images/logo.png" class="logo" alt="Logo" />
+        <div class="lang-selector">
+              <a href="#" data-language-name="Json">Json</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <ul id="toc" class="toc-list-h1">
+          <li>
+            <a href="#overview" class="toc-h1 toc-link" data-title="Overview"><span style="color:#e01b84">Overview</span></a>
+          </li>
+          <li>
+            <a href="#goals" class="toc-h1 toc-link" data-title="Goals"><span style="color:#e01b84">Goals</span></a>
+          </li>
+          <li>
+            <a href="#rest-api" class="toc-h1 toc-link" data-title="REST API"><span style="color:#e01b84">REST API</span></a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#response-format" class="toc-h2 toc-link" data-title="Response format"><span style="color:#e01b84">Response format</span></a>
+                  </li>
+                  <li>
+                    <a href="#environments" class="toc-h2 toc-link" data-title="Environments"><span style="color:#e01b84">Environments</span></a>
+                  </li>
+                  <li>
+                    <a href="#error-code" class="toc-h2 toc-link" data-title="Error code"><span style="color:#e01b84">Error code</span></a>
+                  </li>
+                  <li>
+                    <a href="#status-code" class="toc-h2 toc-link" data-title="Status code"><span style="color:#e01b84">Status code</span></a>
+                  </li>
+                  <li>
+                    <a href="#merchant-api" class="toc-h2 toc-link" data-title="Merchant API"><span style="color:#e01b84">Merchant API<span></span></span></a>
+                  </li>
+                  <li>
+                    <a href="#reporting-api" class="toc-h2 toc-link" data-title="Reporting API"><span style="color:#e01b84">Reporting API<span></span></span></a>
+                  </li>
+                  <li>
+                    <a href="#public-api" class="toc-h2 toc-link" data-title="Public API"><span style="color:#e01b84">Public API<span></span></span></a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#real-time-notifications" class="toc-h1 toc-link" data-title="Real-Time Notifications"><span style="color:#e01b84">Real-Time Notifications<span></span></span></a>
+          </li>
+      </ul>
+        <ul class="toc-footer">
+            <li><a href='#'>Sign Up for a Developer Key</a></li>
+            <li><a href='https://github.com/lord/slate'>Documentation Powered by Slate</a></li>
+        </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id='overview'><span style="color:#e01b84">Overview</span></h1>
+<p>Create a payment gateway for cryptocurrencies.
+To bridge the gap between cryptocurrency owners, who are looking for ways to use their coins for purchasing goods and services, and merchants, that can easily utilize the benefits of blockchain to grow their businesses.</p>
+<h1 id='goals'><span style="color:#e01b84">Goals</span></h1>
+<ul>
+<li><span style="color:#e01b84"><b>BTC, ETH, ADA, and XRP:</b></span> The system must support these common cryptocurrencies.</li>
+<li><span style="color:#e01b84"><b>The system has higher security and reliability requirements:</b></span> Because every transaction has financial impacts on the users and the business. Security should be of a high stake because it is very hard to gain trust and super easy to get it lost.</li>
+<li><span style="color:#e01b84"><b>Traffic and Scalability:</b>&lt;</span> Speed up the payment process. </li>
+<li><span style="color:#e01b84"><b>Backup payment processors:</b>&lt;</span> Handle retries and backup Payment, the System and the log files.</li>
+<li><span style="color:#e01b84"><b>Operations and customer support:</b></span> Easy to operate and support when the customers need.</li>
+<li><span style="color:#e01b84"><b>Analytics:</b>&lt;</span> To support improve system architecture and answer any question of the marketing team or the manager.</li>
+</ul>
+<h1 id='rest-api'><span style="color:#e01b84">REST API</span></h1>
+<p>You must send an authorization header with every request (Except for Public APIs). App token will be shown after you create an app.
+Using the HTTP Authorization header like this: <br>
+<code>Authorization: Token &lt;app_token&gt;</code><br>
+The tokens can be generated on the payment system&#39;s console. The merchant will need to define the application name when generating a new token. It will help the merchant can filter reports better.</p>
+<h2 id='response-format'><span style="color:#e01b84">Response format</span></h2>
+<ul>
+<li>Format: JSON standard</li>
+<li>Timezone: Coordinated Universal Time (UTC), UTC +0 with ISO 8601 format.</li>
+<li>Support UTF-8 encoding: YES</li>
+<li>Number format in JSON: Double value will be return 1.1 or &quot;1.1&quot;</li>
+</ul>
+<h2 id='environments'><span style="color:#e01b84">Environments</span></h2>
+<table><thead>
+<tr>
+<th><b>Name</b></th>
+<th><b>Link (Notify if they are updated)</b></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Live (Mainnet)</td>
+<td><a href='https://payment.act-tech.io/'>https://payment.act-tech.io/</a></td>
+</tr>
+<tr>
+<td>Live (Mainnet)</td>
+<td><a href='https://payment-sandbox.act-tech.io/'>https://payment-sandbox.act-tech.io/</a></td>
+</tr>
+</tbody></table>
+<h2 id='error-code'><span style="color:#e01b84">Error code</span></h2>
+<table><thead>
+<tr>
+<th><b>Error Code</b></th>
+<th><b>HTTP Status</b></th>
+<th><b>Message</b></th>
+<th><b>Note</b></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1000</td>
+<td>401</td>
+<td>Missing Authorization Header</td>
+<td></td>
+</tr>
+<tr>
+<td>1001</td>
+<td>401</td>
+<td>Invalid Authorization Header</td>
+<td></td>
+</tr>
+<tr>
+<td>4000</td>
+<td>400</td>
+<td>Please check the parameters again</td>
+<td>Default</td>
+</tr>
+<tr>
+<td>4001</td>
+<td>400</td>
+<td>Price amount is required</td>
+<td></td>
+</tr>
+<tr>
+<td>4002</td>
+<td>400</td>
+<td>Price currency is required</td>
+<td></td>
+</tr>
+<tr>
+<td>4220</td>
+<td>422</td>
+<td>The data is invalid</td>
+<td>Default</td>
+</tr>
+</tbody></table>
+<h2 id='status-code'><span style="color:#e01b84">Status code</span></h2>
+<table><thead>
+<tr>
+<th><b>HTTP Status</b></th>
+<th><b>Description</b></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200 (OK)</td>
+<td>API response success</td>
+</tr>
+<tr>
+<td>201 (Created)</td>
+<td>Record is created</td>
+</tr>
+<tr>
+<td>401 (Unauthorized)</td>
+<td>API credentials are not valid</td>
+</tr>
+<tr>
+<td>404 (Not Found)</td>
+<td>Page, action not found</td>
+</tr>
+<tr>
+<td>404 (Not Found)</td>
+<td>Record not found</td>
+</tr>
+<tr>
+<td>400 (Bad Request)</td>
+<td>Missing params</td>
+</tr>
+<tr>
+<td>422 (Unprocessable Entity)</td>
+<td>The value of params is invalid</td>
+</tr>
+<tr>
+<td>500 (Internal Server Error)</td>
+<td>Something wrong in servers</td>
+</tr>
+<tr>
+<td>429 (Too Many Requests)</td>
+<td>API request limit is exceeded</td>
+</tr>
+</tbody></table>
+
+<p>Response example: <br>
+<code>JSON
+  {
+    &quot;message&quot;: &quot;The order is not found&quot;,
+    &quot;error_code&quot;: 404
+  }</code></p>
+<h2 id='merchant-api'><span style="color:#e01b84">Merchant API<span></h2><h3 id='create-order'><span style="color:#e01b84">Create Order<span></h3>
+<table><thead>
+<tr>
+<th><b>Method</b></th>
+<th><b>HTTP request</b></th>
+<th><b>Description</b></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URLs relative to <code>https://&lt;Server URL&gt;/api/v1/</code>, unless otherwise noted</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>post</td>
+<td>POST  /orders</td>
+<td>Create Order</td>
+</tr>
+</tbody></table>
+
+<p><b>Parameters:</b> <br></p>
+
+<table><thead>
+<tr>
+<th><b>Parameter name</b></th>
+<th><b>Value</b></th>
+<th><b>Description</b></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>price_amount Or invoice_price_amount</td>
+<td>double</td>
+<td>The price set by the merchant. Example: 1050.99</td>
+</tr>
+<tr>
+<td>price_currency Or invoice_price_currency</td>
+<td>string</td>
+<td>Currency code which defines the currency in which you wish to price your merchandise. Eg, USD, JPY (It also can be BTC, ADA)</td>
+</tr>
+<tr>
+<td>Optional query parameters</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>order_id</td>
+<td>string</td>
+<td>Merchant&#39;s custom order ID</td>
+</tr>
+<tr>
+<td>title</td>
+<td>string</td>
+<td>Max 150 characters. Order title</td>
+</tr>
+<tr>
+<td>description</td>
+<td>string</td>
+<td>More details about this order. Max 500 characters</td>
+</tr>
+<tr>
+<td>callback_url</td>
+<td>string</td>
+<td>Send an automated message to Merchant URL when order status is changed or the number of confirmation is enough. The data is the same order/invoice response.</td>
+</tr>
+<tr>
+<td>success_url</td>
+<td>string</td>
+<td>Redirect to Merchant URL after successful payment</td>
+</tr>
+<tr>
+<td>cancel_url</td>
+<td>string</td>
+<td>Redirect to Merchant URL when buyer cancels the order</td>
+</tr>
+<tr>
+<td>pay_currency</td>
+<td>string</td>
+<td>Cryptocurrency code which will be paid. Eg, BTC, ADA. If you want the user to process payment on your system, please send this param</td>
+</tr>
+</tbody></table>
+
+<p><b>Response</b> <br>
+If successful, this method returns a response body with the following structure <br></p>
+<pre class="highlight shell tab-shell"><code><span class="o">{</span>
+    <span class="s2">"id"</span>: 53,
+    <span class="s2">"status"</span>: <span class="s2">"unconfirmed"</span>,
+    <span class="s2">"invoice_price_currency"</span>: <span class="s2">"USD"</span>,
+    <span class="s2">"invoice_price_amount"</span>: 0.5,
+    <span class="s2">"wallet_address"</span>: <span class="s2">"367f4YWz1VCFaqBqwbTrzwi2b1h2U3w1AF"</span>,
+    <span class="s2">"invoice_created_at"</span>: <span class="s2">"2018-11-15T05:49:36.553+07:00"</span>,
+    <span class="s2">"order_id"</span>: <span class="s2">"ORDER-1539318129916178-4"</span>,
+    <span class="s2">"token"</span>: <span class="s2">"DkNB5m5a7VZySCWr2jZfEw"</span>,
+    <span class="s2">"payment_url"</span>: <span class="s2">"https://.../invoices/f7eb404c-...-be1fd9bbc464"</span>,
+    <span class="s2">"title"</span>: <span class="s2">"Order 4"</span>,
+    <span class="s2">"description"</span>: <span class="s2">"1 × Espresso Con Panna"</span>,
+    <span class="s2">"pay_amount"</span>: 16.26,
+    <span class="s2">"pay_currency"</span>: <span class="s2">"ADA"</span>,
+    <span class="s2">"wallet_address"</span>: <span class="s2">"Ae2tdPwUPEZ9Z3...UHZdqHMXUvHMp5i5SE5D2YxkB"</span>,
+    <span class="s2">"qr_code_url"</span>: <span class="s2">"https://paym...ices/qr_code/Ae5D2xkB"</span>,
+    <span class="s2">"invoice_confirmed_at"</span>: null,
+    <span class="s2">"invoice_received_amount"</span>: 0,
+  <span class="o">}</span>
+</code></pre>
+<!-- <aside class="padding-code" style='background-color: #E5E9EB'>
+{ <br>
+    <span class='greenText'>"id":</span><span class="pinkText">53,</span> <br>
+    <span class='greenText'>"status":</span><span class="pinkText">"unconfirmed",</span>  <br>
+    <span class='greenText'>"invoice_price_currency":</span><span class="pinkText">"USD",</span> <br>
+    <span class='greenText'>"invoice_price_amount":</span><span class="pinkText">0.5,</span> <br>
+    <span class='greenText'>"wallet_address":</span><span class="pinkText">"367f4YWz1VCFaqBqwbTrzwi2b1h2U3w1AF",</span> <br>
+    <span class='greenText'>"invoice_created_at":</span><span class="pinkText">"2018-11-15T05:49:36.553+07:00",</span> <br>
+    <span class='greenText'>"order_id":</span><span class="pinkText">"ORDER-1539318129916178-4",</span> <br>
+    <span class='greenText'>"token":</span><span class="pinkText">"DkNB5m5a7VZySCWr2jZfEw",</span> <br>
+    <span class='greenText'>"payment_url":</span><span class="pinkText">"https://.../invoices/f7eb404c-...-be1fd9bbc464",</span> <br>
+    <span class='greenText'>"title":</span><span class="pinkText">"Order 4",</span> <br>
+    <span class='greenText'>"description":</span><span class="pinkText">"1 × Espresso Con Panna",</span> <br>
+    <span class='greenText'>"pay_amount":</span><span class="pinkText">16.26,</span> <br>
+    <span class='greenText'>"pay_currency":</span><span class="pinkText">"ADA",</span> <br>
+    <span class='greenText'>"wallet_address":</span><span class="pinkText">"Ae2tdPwUPEZ9Z3...UHZdqHMXUvHMp5i5SE5D2YxkB",</span> <br>
+    <span class='greenText'>"qr_code_url":</span><span class="pinkText">"https://paym...ices/qr_code/Ae5D2xkB",</span> <br>
+    <span class='greenText'>"invoice_confirmed_at":</span><span class="pinkText">null,</span> <br>
+    <span class='greenText'>"invoice_received_amount":</span><span class="pinkText">0,</span> <br>
+  }
+</aside> -->
+
+<table><thead>
+<tr>
+<th><b>Response data</b></th>
+<th><b>Value</b></th>
+<th><b>Description</b></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>payment_url</td>
+<td>String URL</td>
+<td>The URL to payment when using ACT-Payment screen UI</td>
+</tr>
+<tr>
+<td>wallet_address</td>
+<td>String URL</td>
+<td>The wallet address which will be received payment amount.</td>
+</tr>
+<tr>
+<td>qr_code_url</td>
+<td>String URL</td>
+<td>The QR code URL of wallet address</td>
+</tr>
+<tr>
+<td>status</td>
+<td>string</td>
+<td>Status of order (invoice)</td>
+</tr>
+<tr>
+<td>pay_amount</td>
+<td>double</td>
+<td>The cryptocurrency amount which the buyer needs to pay</td>
+</tr>
+<tr>
+<td>invoice_created_at</td>
+<td>DateTime</td>
+<td>The time when the order (invoice) was created</td>
+</tr>
+<tr>
+<td>token</td>
+<td>string</td>
+<td>The token is used when need to verify the payment again. Maybe the merchants’ systems don’t need to store it.</td>
+</tr>
+</tbody></table>
+<h3 id='create-order-status'><span style="color:#e01b84">Create Order Status<span></h3><pre class="highlight shell tab-shell"><code><span class="o">{</span> 
+<span class="s2">"id"</span>:53, 
+<span class="s2">"status"</span>:<span class="s2">"paid"</span>, 
+<span class="s2">"invoice_price_currency"</span>:<span class="s2">"USD"</span>, 
+<span class="s2">"invoice_price_amount"</span>:0.5, 
+<span class="s2">"created_at"</span>:<span class="s2">"2018-11-15T05:49:36.553+07:00"</span>, 
+<span class="s2">"order_id"</span>:<span class="s2">"ORDER-1539318129916178-4"</span>, 
+<span class="s2">"token"</span>:<span class="s2">"DkNB5m5a7VZySCWr2jZfEw"</span>, 
+<span class="s2">"payment_url"</span>:<span class="s2">"https://.../invoices/f7eb404c-...-be1fd9bbc464"</span>, 
+<span class="s2">"title"</span>:<span class="s2">"Order 4"</span>, 
+<span class="s2">"description"</span>:<span class="s2">"1 × Espresso Con Panna"</span>, 
+<span class="s2">"pay_amount"</span>:16.26, 
+<span class="s2">"pay_currency"</span>:<span class="s2">"ADA"</span>, 
+<span class="s2">"wallet_address"</span>:<span class="s2">"Ae2tdPwUPEZ9Z3...UHZdqHMXUvHMp5i5SE5D2YxkB"</span>, 
+<span class="s2">"qr_code_url"</span>:<span class="s2">"https://paym...ices/qr_code/Ae5D2xkB"</span>, 
+<span class="s2">"invoice_confirmed_at"</span>: <span class="s2">"2018-11-15T05:55:36.553+07:00"</span>, 
+<span class="s2">"invoice_received_amount"</span>:16.3 
+<span class="o">}</span>
+</code></pre>
+<table><thead>
+<tr>
+<th><b>Method</b></th>
+<th><b>HTTP Request</b></th>
+<th><b>Description</b></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URIs relative to <code>https://&lt;Server URL&gt;/api/v1/</code>, unless otherwise noted</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>get</td>
+<td>GET  <code>/orders/:id</code></td>
+<td>Get Order detail</td>
+</tr>
+</tbody></table>
+
+<p><b>Parameter</b> <br></p>
+
+<table><thead>
+<tr>
+<th><b>Parameter name</b></th>
+<th><b>Value</b></th>
+<th><b>Description</b></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Required parameters</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>id</td>
+<td>integer</td>
+<td>Order ID</td>
+</tr>
+</tbody></table>
+
+<p><b>Reponsise</b> <br>
+If successful, this method returns a response body with the following structure <br></p>
+
+<!-- <aside class="padding-code" style='background-color: #E5E9EB'>
+{ <br>
+    <span class='greenText'>"id":</span><span class="pinkText">53,</span> <br>
+    <span class='greenText'>"status":</span><span class="pinkText">"paid",</span>  <br>
+    <span class='greenText'>"invoice_price_currency":</span><span class="pinkText">"USD",</span> <br>
+    <span class='greenText'>"invoice_price_amount":</span><span class="pinkText">0.5,</span> <br>
+    <span class='greenText'>"created_at":</span><span class="pinkText">"2018-11-15T05:49:36.553+07:00",</span> <br>
+    <span class='greenText'>"order_id":</span><span class="pinkText">"ORDER-1539318129916178-4",</span> <br>
+    <span class='greenText'>"token":</span><span class="pinkText">"DkNB5m5a7VZySCWr2jZfEw",</span> <br>
+    <span class='greenText'>"payment_url":</span><span class="pinkText">"https://.../invoices/f7eb404c-...-be1fd9bbc464",</span> <br>
+    <span class='greenText'>"title":</span><span class="pinkText">"Order 4",</span> <br>
+    <span class='greenText'>"description":</span><span class="pinkText">"1 × Espresso Con Panna",</span> <br>
+    <span class='greenText'>"pay_amount":</span><span class="pinkText">16.26,</span> <br>
+    <span class='greenText'>"pay_currency":</span><span class="pinkText">"ADA",</span> <br>
+    <span class='greenText'>"wallet_address":</span><span class="pinkText">"Ae2tdPwUPEZ9Z3...UHZdqHMXUvHMp5i5SE5D2YxkB",</span> <br>
+    <span class='greenText'>"qr_code_url":</span><span class="pinkText">"https://paym...ices/qr_code/Ae5D2xkB",</span> <br>
+    <span class='greenText'>"invoice_confirmed_at":</span><span class="pinkText">2018-11-15T05:55:36.553+07:00",</span> <br>
+    <span class='greenText'>"invoice_received_amount":</span><span class="pinkText">16.3</span> <br>
+  }
+</aside> <br> -->
+
+<table><thead>
+<tr>
+<th><b>Response data</b></th>
+<th><b>Value</b></th>
+<th><b>Description</b></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>nvoice_confirmed_at</td>
+<td>DateTime</td>
+<td>The time when the blockchain network confirmed the transaction (Normally 6 blocks for a Bitcoin transaction)</td>
+</tr>
+<tr>
+<td>invoice_received_amount</td>
+<td>Double</td>
+<td>The real amount which the system</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>was received for this order (invoice).</td>
+</tr>
+</tbody></table>
+<h2 id='reporting-api'><span style="color:#e01b84">Reporting API<span></h2><h3 id='list-the-orders'><span style="color:#e01b84">List the orders<span></h3><pre class="highlight shell tab-shell"><code><span class="o">{</span> 
+<span class="s2">"message"</span>:<span class="s2">"Success"</span>, 
+<span class="s2">"data"</span>: <span class="o">[</span>, 
+<span class="o">{</span> 
+<span class="s2">"id"</span>:6, 
+<span class="s2">"status"</span>:<span class="s2">"paid"</span>, 
+<span class="s2">"invoice_price_currency"</span>:<span class="s2">"USD"</span>, 
+<span class="s2">"invoice_price_amount"</span>:1.0, 
+<span class="s2">"created_at"</span>:<span class="s2">"2018-10-23T16:33:24.485+09:00"</span>, 
+<span class="s2">"order_id"</span>:<span class="s2">"ORDER-1540280002934932-6"</span>, 
+<span class="s2">"token"</span>:<span class="s2">"uwxHYa4Q4Kg-UR-0UCHZ3w"</span>, 
+<span class="s2">"payment_url"</span>:<span class="s2">"https://payment.act-te...8b3-8655-69ee5542fc1a"</span>, 
+<span class="s2">"title"</span>:<span class="s2">"Order #6"</span>, 
+<span class="s2">"description"</span>:<span class="s2">"1 × 1 × Brewed Coffee"</span>, 
+<span class="s2">"pay_amount"</span>:0.0001544, 
+<span class="s2">"pay_currency"</span>:<span class="s2">"BTC"</span>, 
+<span class="s2">"wallet_address"</span>:<span class="s2">"2MvvXu8JdcZdo9pAkw2fMvAZxrmTbhrviap"</span>, 
+<span class="s2">"wallet_url"</span>:<span class="s2">"https://payment.act-t...cZdo9pAkw2fMvAZxrmTbhrviap"</span>, 
+<span class="o">}</span>, 
+<span class="o">{</span> <span class="s2">"id"</span>:5, 
+<span class="s2">"status"</span>:<span class="s2">"expired"</span>, 
+<span class="s2">"invoice_price_currency"</span>:<span class="s2">"USD"</span>, 
+<span class="s2">"invoice_price_amount"</span>:3.0, 
+<span class="s2">"created_at"</span>:<span class="s2">"2018-10-23T16:17:59.203+09:00"</span>, 
+<span class="s2">"order_id"</span>:<span class="s2">"ORDER-1540279075370022-5"</span>, 
+<span class="s2">"token"</span>:<span class="s2">"B5CO-64aXVk_vb-Op3QK5w"</span>, 
+<span class="s2">"payment_url"</span>:<span class="s2">"https://payment.act-tech...0b-45d1-b919-3f9110032efd"</span>, 
+<span class="s2">"title"</span>:<span class="s2">"Order #5"</span>, 
+<span class="s2">"description"</span>:<span class="s2">"1 × Caramel Macchiato"</span>, 
+<span class="s2">"pay_amount"</span>:0.0004635, 
+<span class="s2">"pay_currency"</span>:<span class="s2">"BTC"</span>, 
+<span class="s2">"wallet_address"</span>:<span class="s2">"2N47sHtU9wewejLGh3Hv8H89gNX53xNa4PH"</span>, 
+<span class="s2">"wallet_url"</span>:<span class="s2">"https://payment.act-tech...9wewejLGh3Hv8H89gNX53xNa4PH"</span>, 
+<span class="o">}</span> 
+<span class="o">]</span> 
+<span class="o">}</span>
+</code></pre>
+<table><thead>
+<tr>
+<th><b>Method</b></th>
+<th><b>HTTP request</b></th>
+<th><b>Description</b></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URIs relative to <code>https://&lt;Server URL&gt;/api/v1/</code>, unless otherwise noted</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>get</td>
+<td>GET  /report/orders</td>
+<td>Report for orders</td>
+</tr>
+</tbody></table>
+
+<p><b>Parameter</b> <br></p>
+
+<table><thead>
+<tr>
+<th><b>Parameter name</b></th>
+<th><b>Value</b></th>
+<th><b>Description</b></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Optional query parameters</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>date_range</td>
+<td>string</td>
+<td>See Date range value</td>
+</tr>
+<tr>
+<td>from</td>
+<td>date</td>
+<td>Start date range with format YYYY-MM-DD. It can’t be greater today.</td>
+</tr>
+<tr>
+<td>to</td>
+<td>date</td>
+<td>End date range with format YYYY-MM-DD. It must be greater from value and can’t be greater today.</td>
+</tr>
+<tr>
+<td>price_currency</td>
+<td>string</td>
+<td>Filter orders which use price_currency</td>
+</tr>
+<tr>
+<td>pay_currency</td>
+<td>string</td>
+<td>Cryptocurrency code: BTC or ADA. Filter orders which were paid with pay_currency</td>
+</tr>
+<tr>
+<td>status</td>
+<td>string</td>
+<td>Filter orders with status.</td>
+</tr>
+<tr>
+<td>amount</td>
+<td>double</td>
+<td>Filter orders which amount</td>
+</tr>
+<tr>
+<td>keyword</td>
+<td>string</td>
+<td>Search title and description or wallet address</td>
+</tr>
+<tr>
+<td><b>Operations</b></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>=</td>
+<td></td>
+<td>The content of a string or boolean is equal to the other or a value is equal to another.</td>
+</tr>
+<tr>
+<td>&lt;</td>
+<td></td>
+<td>A value is less than another</td>
+</tr>
+<tr>
+<td>&lt;=</td>
+<td></td>
+<td>A value is less than or equal to another.</td>
+</tr>
+<tr>
+<td>&gt;</td>
+<td></td>
+<td>A value is later than another.</td>
+</tr>
+<tr>
+<td>&gt;=</td>
+<td></td>
+<td>A value is later than or equal to another.</td>
+</tr>
+<tr>
+<td>and</td>
+<td></td>
+<td>Return items that match both clauses.</td>
+</tr>
+<tr>
+<td>or</td>
+<td></td>
+<td>Return items that match either clause.</td>
+</tr>
+</tbody></table>
+
+<p>Date range value <br></p>
+
+<table><thead>
+<tr>
+<th><b>Value</b></th>
+<th><b>Description</b></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>TODAY</td>
+<td>Today only</td>
+</tr>
+<tr>
+<td>YESTERDAY</td>
+<td>Yesterday only.</td>
+</tr>
+<tr>
+<td>LAST_7_DAYS</td>
+<td>The last 7 days not including today.</td>
+</tr>
+<tr>
+<td>THIS_MONTH</td>
+<td>All days in the current month.</td>
+</tr>
+<tr>
+<td>LAST_MONTH</td>
+<td>All days in the previous month.</td>
+</tr>
+<tr>
+<td>ALL_TIME</td>
+<td>The entire available time range.</td>
+</tr>
+<tr>
+<td>CUSTOM_DATE</td>
+<td>A custom date range. Use with parameters from and to</td>
+</tr>
+<tr>
+<td>LAST_14_DAYS</td>
+<td>The last 14 days not including today.</td>
+</tr>
+<tr>
+<td>LAST_30_DAYS</td>
+<td>The last 30 days not including today.</td>
+</tr>
+</tbody></table>
+
+<p><b>Response</b> <br></p>
+
+<p>If successful, this method returns a response body with the result</p>
+
+<!-- <aside class="padding-code" style='background-color: #E5E9EB'>
+{ <br>
+    <span class='greenText'>"message":</span><span class="pinkText">"Success",</span> <br>
+    <span class='greenText'>"data":</span><span class="pinkText"> [,</span>  <br>
+{ <br>
+    <span class='greenText'>"id":</span><span class="pinkText">6,</span> <br>
+    <span class='greenText'>"status":</span><span class="pinkText">"paid",</span>  <br>
+    <span class='greenText'>"invoice_price_currency":</span><span class="pinkText">"USD",</span> <br>
+    <span class='greenText'>"invoice_price_amount":</span><span class="pinkText">1.0,</span> <br>
+    <span class='greenText'>"created_at":</span><span class="pinkText">"2018-10-23T16:33:24.485+09:00",</span> <br>
+    <span class='greenText'>"order_id":</span><span class="pinkText">"ORDER-1540280002934932-6",</span> <br>
+    <span class='greenText'>"token":</span><span class="pinkText">"uwxHYa4Q4Kg-UR-0UCHZ3w",</span> <br>
+    <span class='greenText'>"payment_url":</span><span class="pinkText">"https://payment.act-te...8b3-8655-69ee5542fc1a",</span> <br>
+    <span class='greenText'>"title":</span><span class="pinkText">"Order #6",</span> <br>
+    <span class='greenText'>"description":</span><span class="pinkText">"1 × 1 × Brewed Coffee",</span> <br>
+    <span class='greenText'>"pay_amount":</span><span class="pinkText">0.0001544,</span> <br>
+    <span class='greenText'>"pay_currency":</span><span class="pinkText">"BTC",</span> <br>
+    <span class='greenText'>"wallet_address":</span><span class="pinkText">"2MvvXu8JdcZdo9pAkw2fMvAZxrmTbhrviap",</span> <br>
+    <span class='greenText'>"wallet_url":</span><span class="pinkText">"https://payment.act-t...cZdo9pAkw2fMvAZxrmTbhrviap",</span> <br>
+  }, <br>
+  {
+    <span class='greenText'>"id":</span><span class="pinkText">5,</span> <br>
+    <span class='greenText'>"status":</span><span class="pinkText">"expired",</span>  <br>
+    <span class='greenText'>"invoice_price_currency":</span><span class="pinkText">"USD",</span> <br>
+    <span class='greenText'>"invoice_price_amount":</span><span class="pinkText">3.0,</span> <br>
+    <span class='greenText'>"created_at":</span><span class="pinkText">"2018-10-23T16:17:59.203+09:00",</span> <br>
+    <span class='greenText'>"order_id":</span><span class="pinkText">"ORDER-1540279075370022-5",</span> <br>
+    <span class='greenText'>"token":</span><span class="pinkText">"B5CO-64aXVk_vb-Op3QK5w",</span> <br>
+    <span class='greenText'>"payment_url":</span><span class="pinkText">"https://payment.act-tech...0b-45d1-b919-3f9110032efd",</span> <br>
+    <span class='greenText'>"title":</span><span class="pinkText">"Order #5",</span> <br>
+    <span class='greenText'>"description":</span><span class="pinkText">"1 × Caramel Macchiato",</span> <br>
+    <span class='greenText'>"pay_amount":</span><span class="pinkText">0.0004635,</span> <br>
+    <span class='greenText'>"pay_currency":</span><span class="pinkText">"BTC",</span> <br>
+    <span class='greenText'>"wallet_address":</span><span class="pinkText">"2N47sHtU9wewejLGh3Hv8H89gNX53xNa4PH",</span> <br>
+    <span class='greenText'>"wallet_url":</span><span class="pinkText">"https://payment.act-tech...9wewejLGh3Hv8H89gNX53xNa4PH",</span> <br>
+   } <br>
+  ] <br>
+   }
+</aside> -->
+<h2 id='public-api'><span style="color:#e01b84">Public API<span></h2>
+<p>Current exchange rates for Merchants. This endpoint is public, authentication is not required</p>
+<h3 id='list-the-supported-coins'><span style="color:#e01b84">List the supported coins<span></h3>
+<table><thead>
+<tr>
+<th><b>Method</b></th>
+<th><b>HTTP request</b></th>
+<th><b>Description</b></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URIs relative to https://<Server URL>/api/v1/, unless otherwise noted</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>get</td>
+<td>GET  /listings</td>
+<td>Displays all supported coins</td>
+</tr>
+</tbody></table>
+
+<p><b>Response</b> <br>
+If successful, this method returns a response body with the result</p>
+
+<aside class="padding-code" style='background-color: #E5E9EB'>
+
+[<span class="pinkText">"BTC", "ADA"</span>] <br>
+
+</aside>
+
+<p><b>Example</b> <br></p>
+
+<aside class="padding-code" style='background-color: #E5E9EB'>
+
+<a href="https://payment.act-tech.io/api/v1/listings">https://payment.act-tech.io/api/v1/listings</a>
+
+</aside>
+<h3 id='get-exchange-rate'><span style="color:#e01b84">Get Exchange Rate<span></h3>
+<table><thead>
+<tr>
+<th><b>Method</b></th>
+<th><b>HTTP request</b></th>
+<th><b>Description</b></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URIs relative to https://<Server URL>/api/v1/, unless otherwise noted</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>get</td>
+<td>GET  <code>/rates/:from/:to</code></td>
+<td>Get an exchange rate</td>
+</tr>
+</tbody></table>
+<pre class="highlight shell tab-shell"><code><span class="o">{</span> 
+<span class="s2">"from"</span>:String, 
+<span class="s2">"to"</span>:String, 
+<span class="s2">"rate"</span>:double, 
+<span class="s2">"time"</span>:DateTime, 
+<span class="o">}</span>
+
+</code></pre>
+<p><b>Prameters</b></p>
+
+<table><thead>
+<tr>
+<th><b>Parameter name</b></th>
+<th><b>Value</b></th>
+<th><b>Description</b></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Required parameters</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>from</td>
+<td>string</td>
+<td>ISO Symbol. Example: JPY, USD</td>
+</tr>
+<tr>
+<td>to</td>
+<td>string</td>
+<td>ISO Symbol. Example: BTC, ADA</td>
+</tr>
+<tr>
+<td>Option parameters</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>source</td>
+<td>string</td>
+<td>The source to get the exchange rate data. Default: Cryptocompare</td>
+</tr>
+</tbody></table>
+
+<p><b>Response</b> <br></p>
+
+<p>If successful, this method returns a response body with the result</p>
+
+<!-- <aside class="padding-code" style='background-color: #E5E9EB'>
+{ <br>
+    <span class='greenText'>"from":</span><span class="pinkText">String,</span> <br>
+    <span class='greenText'>"to":</span><span class="pinkText">String,</span> <br>
+    <span class='greenText'>"rate":</span><span class="pinkText">double,</span> <br>
+    <span class='greenText'>"time":</span><span class="pinkText">DateTime,</span> <br>
+  }
+</aside> <br> -->
+
+<p><b>Example</b> <br></p>
+
+<aside class="padding-code" style='background-color: #E5E9EB'>
+
+<a href="https://payment.act-tech.io/api/v1/ping">https://payment.act-tech.io/api/v1/ping</a>
+
+</aside>
+<h1 id='real-time-notifications'><span style="color:#e01b84">Real-Time Notifications<span></h1><pre class="highlight shell tab-shell"><code><span class="o">{</span> 
+<span class="s2">"id"</span>:12, 
+<span class="s2">"order_id"</span>:<span class="s2">"ORDER-1545492017181432-35"</span>, 
+<span class="s2">"token"</span>:<span class="s2">"kmeJKu7LHOkH82XDEFW89Q"</span>, 
+<span class="s2">"status"</span>:<span class="s2">"paid"</span>, 
+<span class="s2">"invoice_received_amount"</span>:<span class="s2">"0.0007723"</span>, 
+<span class="o">}</span>
+</code></pre>
+<p><b>Data post callback</b> <br></p>
+
+<p>If successful, the system will post to callback URL with data</p>
+
+<!-- <aside class="padding-code" style='background-color: #E5E9EB'>
+{ <br>
+    <span class='greenText'>"id":</span><span class="pinkText">12,</span> <br>
+    <span class='greenText'>"order_id":</span><span class="pinkText">"ORDER-1545492017181432-35",</span> <br>
+    <span class='greenText'>"token":</span><span class="pinkText">"kmeJKu7LHOkH82XDEFW89Q",</span> <br>
+    <span class='greenText'>"status":</span><span class="pinkText">"paid",</span> <br>
+    <span class='greenText'>"invoice_received_amount":</span><span class="pinkText">"0.0007723",</span> <br>
+  }
+</aside> -->
+
+<table><thead>
+<tr>
+<th><b>Name</b></th>
+<th><b>Description</b></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>The invoice ID on the payment system</td>
+</tr>
+<tr>
+<td>order_id</td>
+<td>The invoice ID on the merchant system</td>
+</tr>
+<tr>
+<td>token</td>
+<td>The invoice token. It helps to avoid invalid data</td>
+</tr>
+<tr>
+<td>status</td>
+<td>The new status of the invoice</td>
+</tr>
+<tr>
+<td>invoice_received_amount</td>
+<td>The received amount</td>
+</tr>
+</tbody></table>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="Json">Json</a>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>
